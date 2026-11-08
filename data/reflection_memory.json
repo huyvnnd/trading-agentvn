@@ -1,36 +1,6 @@
 [
   {
-    "timestamp": "2026-11-08 04:12:44",
-    "symbol": "HDB",
-    "price_at_decision": 22500.0,
-    "stage": "Giai Đoạn 2: UPTREND TĂNG TRƯỞNG (WEINSTEIN STAGE 2 - ĐẨY GIÁ)",
-    "sepa_score": 8,
-    "rs_rating": 70,
-    "canslim_score": 78,
-    "intrinsic_value": 52502.0,
-    "final_decision": "TẠM DỪNG / ĐƯA VÀO WATCHLIST CHỜ XÁC NHẬN TẠO ĐÁY 🟡",
-    "conviction_score": 4,
-    "allocation_pct": 0,
-    "stop_loss": 21079.0,
-    "target_tp1": 26052.5
-  },
-  {
-    "timestamp": "2026-11-08 03:58:31",
-    "symbol": "FRT",
-    "price_at_decision": 142000.0,
-    "stage": "Giai Đoạn 2B/3: ĐANG ĐIỀU CHỈNH NGẮN HẠN SAU ĐỈNH (GÃY MA20 & MCDX RÚT RA - CHƯA CÓ ĐÁY)",
-    "sepa_score": 5,
-    "rs_rating": 61,
-    "canslim_score": 75,
-    "intrinsic_value": 68058.0,
-    "final_decision": "TỪ CHỐI ĐẦU TƯ / BẢO VỆ VỐN TUYỆT ĐỐI ❌",
-    "conviction_score": 0,
-    "allocation_pct": 0,
-    "stop_loss": 135930.0,
-    "target_tp1": 157175.0
-  },
-  {
-    "timestamp": "2026-11-08 01:04:05",
+    "timestamp": "2026-11-08 04:16:49",
     "symbol": "TCM",
     "price_at_decision": 15150.0,
     "stage": "Giai Đoạn 4: DOWNTREND SUY THOÁI (WEINSTEIN STAGE 4 - ĐÈ GIÁ)",
@@ -45,7 +15,22 @@
     "target_tp1": 17801.25
   },
   {
-    "timestamp": "2026-11-08 01:03:55",
+    "timestamp": "2026-11-08 04:16:47",
+    "symbol": "HDB",
+    "price_at_decision": 22500.0,
+    "stage": "Giai Đoạn 2: UPTREND TĂNG TRƯỞNG (WEINSTEIN STAGE 2 - ĐẨY GIÁ)",
+    "sepa_score": 8,
+    "rs_rating": 70,
+    "canslim_score": 78,
+    "intrinsic_value": 52502.0,
+    "final_decision": "TẠM DỪNG / ĐƯA VÀO WATCHLIST CHỜ XÁC NHẬN TẠO ĐÁY 🟡",
+    "conviction_score": 4,
+    "allocation_pct": 0,
+    "stop_loss": 21079.0,
+    "target_tp1": 26052.5
+  },
+  {
+    "timestamp": "2026-11-08 04:16:44",
     "symbol": "VIC",
     "price_at_decision": 234500.0,
     "stage": "Giai Đoạn 2: UPTREND TĂNG TRƯỞNG (WEINSTEIN STAGE 2 - ĐẨY GIÁ)",
@@ -60,7 +45,7 @@
     "target_tp1": 275537.5
   },
   {
-    "timestamp": "2026-11-08 01:03:54",
+    "timestamp": "2026-11-08 04:16:42",
     "symbol": "NKG",
     "price_at_decision": 12150.0,
     "stage": "Giai Đoạn 1: TÍCH LŨY TẠO NỀN (WYCKOFF BASE - STAGE 1)",
@@ -73,6 +58,21 @@
     "allocation_pct": 0,
     "stop_loss": 11299.5,
     "target_tp1": 14276.25
+  },
+  {
+    "timestamp": "2026-11-08 04:16:21",
+    "symbol": "FRT",
+    "price_at_decision": 142000.0,
+    "stage": "Giai Đoạn 2B/3: ĐANG ĐIỀU CHỈNH NGẮN HẠN SAU ĐỈNH (GÃY MA20 & MCDX RÚT RA - CHƯA CÓ ĐÁY)",
+    "sepa_score": 5,
+    "rs_rating": 61,
+    "canslim_score": 75,
+    "intrinsic_value": 68058.0,
+    "final_decision": "TỪ CHỐI ĐẦU TƯ / BẢO VỆ VỐN TUYỆT ĐỐI ❌",
+    "conviction_score": 0,
+    "allocation_pct": 0,
+    "stop_loss": 135930.0,
+    "target_tp1": 157175.0
   },
   {
     "timestamp": "2026-11-08 00:28:13",
