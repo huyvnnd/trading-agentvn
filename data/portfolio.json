@@ -1,0 +1,24 @@
+{
+  "cash": 5934112.5,
+  "holdings": {
+    "TCM": {
+      "quantity": 6500,
+      "avg_price": 14450.0
+    }
+  },
+  "transactions": [
+    {
+      "id": "TX00001",
+      "time": "2026-11-02 01:38:22",
+      "action": "MUA",
+      "symbol": "TCM",
+      "quantity": 6500,
+      "price": 14450.0,
+      "gross_amount": 93925000.0,
+      "fee": 140887.5,
+      "tax": 0.0,
+      "net_amount": 94065887.5
+    }
+  ],
+  "updated_at": "2026-11-02 01:38:22"
+}

@@ -1,0 +1,150 @@
+{
+  "version": "2.0",
+  "last_audit_time": "2026-11-07 23:11:25",
+  "total_audits_run": 3,
+  "win_rate_pct": 15.4,
+  "avg_return_t5_pct": -1.57,
+  "adaptive_params": {
+    "min_breakout_vol_ratio": 1.45,
+    "max_poc_extension_pct": 6.9,
+    "stage4_downtrend_veto": true,
+    "value_trap_roe_floor": 10.0,
+    "rsi_overbought_chase_limit": 74.0,
+    "fund_weight": 0.3,
+    "tech_weight": 0.35,
+    "Persona_weight": 0.2,
+    "sentiment_weight": 0.15
+  },
+  "mistakes_catalog": [
+    {
+      "id": "SL-001",
+      "timestamp": "2026-10-25 14:45",
+      "symbol": "TCM",
+      "category": "Cấu Trúc Xu Hướng (Stage 4 Downtrend Trap)",
+      "mistake_summary": "Nhận diện nhầm nhịp hồi kỹ thuật ngắn hạn trong xu hướng giảm dài hạn (Stage 4: Giá < MA50 < MA200) thành Uptrend.",
+      "root_cause": "Chỉ nhìn nến tăng ngắn hạn mà bỏ qua cấu trúc đỉnh sau thấp hơn đỉnh trước (LH-LL) và MA50 dốc xuống dưới MA200.",
+      "corrective_rule": "TUYỆT ĐỐI KHÔNG khuyến nghị MUA khi cổ phiếu đang ở Weinstein Stage 4 (Giá < MA50 và MA50 < MA200) hoặc cấu trúc LH-LL. Hạ điểm kỹ thuật tối đa xuống <= 35/100.",
+      "trigger_condition": "stage == 4 or (price < sma50 and sma50 < sma200)",
+      "penalty_points": -18.0,
+      "force_hold_or_avoid": true,
+      "status": "Đang kích hoạt (Active)",
+      "verified_saves": 49
+    },
+    {
+      "id": "SL-002",
+      "timestamp": "2026-10-27 15:10",
+      "symbol": "NVL",
+      "category": "Bẫy Giá Rẻ Cơ Bản (Fundamental Value Trap & High Debt)",
+      "mistake_summary": "Mua cổ phiếu có P/B thấp (< 1.0) nhưng Nợ vay/VCSH quá cao (> 2.0x) và ROE suy giảm dưới 5%.",
+      "root_cause": "Đánh giá định giá rẻ bề nổi theo P/B mà thiếu kiểm tra sức khỏe bảng cân đối kế toán và khả năng trả lãi vay.",
+      "corrective_rule": "Khi Nợ/VCSH > 2.0x (phi tài chính) đi kèm ROE < 8%, cảnh báo Bẫy Giá Rẻ (Value Trap) và trừ 15 điểm tổng hợp.",
+      "trigger_condition": "debt_to_equity > 2.0 and roe < 8.0",
+      "penalty_points": -15.0,
+      "force_hold_or_avoid": true,
+      "status": "Đang kích hoạt (Active)",
+      "verified_saves": 10
+    },
+    {
+      "id": "SL-003",
+      "timestamp": "2026-10-29 15:00",
+      "symbol": "DIG",
+      "category": "Bẫy Bull Trap Nổ Vol Yếu (Low-Volume False Breakout)",
+      "mistake_summary": "Mua tại phiên vượt kháng cự nhưng khối lượng giao dịch thấp hơn 1.25x trung bình 20 phiên, dẫn đến hàng T+2.5 về bị lỗ 5.4%.",
+      "root_cause": "Thiếu sự xác nhận dòng tiền tổ chức (Effort vs Result theo Wyckoff VSA) tại điểm Breakout.",
+      "corrective_rule": "Nâng ngưỡng xác nhận Breakout lên tối thiểu Vol >= 1.35x MA20. Nếu giá tăng vượt đỉnh nhưng Vol < 1.0x MA20 -> Cảnh báo No Demand / Bull Trap, trừ 10 điểm.",
+      "trigger_condition": "price_change > 2.5 and vol_ratio < 1.05",
+      "penalty_points": -10.0,
+      "force_hold_or_avoid": false,
+      "status": "Đang kích hoạt (Active)",
+      "verified_saves": 19
+    },
+    {
+      "id": "SL-004",
+      "timestamp": "2026-10-30 14:50",
+      "symbol": "FRT",
+      "category": "Mua Đuổi Quá Xa Nền Giá (Extended From POC / Overbought Chase)",
+      "mistake_summary": "Giải ngân mới khi giá đã chạy xa hơn +10% so với vùng POC/MA20 và RSI > 74, gặp áp lực chốt lời T+2.5.",
+      "root_cause": "Vi phạm nguyên tắc mua gần nền tích lũy VCP/POC của Mark Minervini.",
+      "corrective_rule": "Khi giá vượt quá +8% so với SMA20 và RSI(14) > 74, không khuyến nghị MUA MỚI đuổi giá; chuyển sang CHỜ PULLBACK về sát MA20/POC.",
+      "trigger_condition": "dist_sma20_pct > 8.0 and rsi > 74.0",
+      "penalty_points": -12.0,
+      "force_hold_or_avoid": false,
+      "status": "Đang kích hoạt (Active)",
+      "verified_saves": 11
+    },
+    {
+      "id": "SL-005",
+      "timestamp": "2026-10-31 15:05",
+      "symbol": "VND",
+      "category": "Phân Kỳ Âm Dòng Tiền (Upthrust / Wyckoff Distribution)",
+      "mistake_summary": "Mua khi xuất hiện nến rút đầu râu trên dài (Upthrust) kèm khối lượng đột biến > 1.8x tại vùng kháng cự đỉnh cũ.",
+      "root_cause": "Cá mập xả hàng ẩn (Supply Overcoming Demand) nhưng nhà đầu tư cá nhân hưng phấn mua vào.",
+      "corrective_rule": "Phát hiện tín hiệu Upthrust / Phân phối đỉnh trên VSA -> Trừ 14 điểm kỹ thuật và chặn lệnh MUA MỚI.",
+      "trigger_condition": "vsa_upthrust_or_distribution",
+      "penalty_points": -14.0,
+      "force_hold_or_avoid": true,
+      "status": "Đang kích hoạt (Active)",
+      "verified_saves": 8
+    },
+    {
+      "id": "SL-006",
+      "timestamp": "2026-11-06 19:45",
+      "symbol": "ALL",
+      "category": "Quy Trình Tư Duy & Tổ Chức Lập Trình Toàn Diện (Spec-Driven Development - SDD)",
+      "mistake_summary": "Lập trình cảm tính (Vibe Coding), nhảy vội vào sửa code mà không qua đặc tả (Spec), không làm rõ ca biên (Clarify), không có hợp đồng dữ liệu (Plan/Contracts) và không phân rã nhiệm vụ nguyên tử (Tasks) dẫn đến mâu thuẫn hệ thống (như sự cố mã NKG lọt nhầm vào Top Mua).",
+      "root_cause": "Coi code là trung tâm thay vì coi Đặc tả (Spec) là nguồn chân lý tối thượng (Power Inversion theo GitHub Spec Kit).",
+      "corrective_rule": "BẮT BUỘC áp dụng quy trình 6 bước GitHub Spec Kit (github/spec-kit) cho mọi tác vụ: 1. Constitution (Hiến pháp bất biến) -> 2. Specify (User Stories P1/P2/P3 & Given-When-Then) -> 3. Clarify (Phản biện ca biên & loại bỏ mâu thuẫn) -> 4. Plan (Kiến trúc & Data Models & Contracts) -> 5. Tasks (Atomic tasks [P]) -> 6. Implement & Verify (Test-First TDD).",
+      "trigger_condition": "always_active",
+      "penalty_points": 0.0,
+      "force_hold_or_avoid": false,
+      "status": "Đang kích hoạt (Active - Global Standard)",
+      "verified_saves": 100
+    },
+    {
+      "id": "SL-008",
+      "timestamp": "2026-11-08 00:08",
+      "symbol": "VIC",
+      "category": "Bẫy Định Giá Cao & Thiếu Điểm Nổ Pivot Giai Đoạn 2 (Overvaluation & Incomplete VCP Trap)",
+      "mistake_summary": "Phê duyệt mua thăm dò cổ phiếu ở Stage 2 (VIC) khi định giá đã quá cao so với giá trị nội tại (MoS = -49.5%), bị 5/9 Đại kiện tướng bỏ phiếu BEARISH phản đối và mẫu hình VCP chưa nén xong, thị giá nằm dưới Pivot bứt phá và xung lực MCDX Fast < Slow.",
+      "root_cause": "Thiếu bộ lọc kiểm tra đa số đồng thuận của Hội đồng 9 Đại Kiện Tướng và thiếu kiểm tra trần định giá MoS/điểm nổ Pivot trong nhánh Stage 2 Probationary Buy của CIO.",
+      "corrective_rule": "Cổ phiếu Stage 2 KHÔNG ĐƯỢC PHÉP giải ngân (> 0% NAV) khi: 1. Đa số Hội đồng phản đối (Bearish >= 4 hoặc Bearish > Bullish); 2. Biên an toàn MoS < -25% khi chưa có điểm nổ Pivot; 3. Mẫu hình VCP chưa hoàn thành và xung lực MCDX Fast < Slow. Khi đó BẮT BUỘC xếp vào Watchlist theo dõi (0% NAV).",
+      "trigger_condition": "bear_count >= 4 or (mos_pct < -25.0 and not vcp_pivot_breakout)",
+      "penalty_points": -15.0,
+      "force_hold_or_avoid": true,
+      "status": "Đang kích hoạt (Active - Institutional Standard)",
+      "verified_saves": 1
+    }
+  ],
+  "audit_history": [
+    {
+      "timestamp": "2026-11-07 23:11:25",
+      "symbols_audited": 10,
+      "sample_trades": 13,
+      "win_rate_pct": 15.4,
+      "avg_return_t5_pct": -1.57,
+      "false_breakouts_detected": 4,
+      "chase_losses_detected": 4,
+      "downtrend_traps_detected": 3,
+      "adjustments": [
+        "Phát hiện 4 lệnh lỗ T+5 do nổ giá thiếu Vol -> Tự động nâng ngưỡng `min_breakout_vol_ratio` từ 1.4x lên **1.45x**.",
+        "Phát hiện 4 lệnh lỗ T+5 do mua đuổi xa MA20 -> Tự động siết ngưỡng `max_poc_extension_pct` từ 7.2% xuống **6.9%**.",
+        "Phát hiện 3 nhịp Bull-trap dưới MA50 gây lỗ T+5 -> Giữ nguyên chế độ **VETO Chặn Mua Tuyệt Đối** với cổ phiếu dưới MA50/Stage 4."
+      ]
+    },
+    {
+      "timestamp": "2026-11-01 06:04:06",
+      "symbols_audited": 10,
+      "sample_trades": 18,
+      "win_rate_pct": 38.9,
+      "avg_return_t5_pct": 0.35,
+      "false_breakouts_detected": 4,
+      "chase_losses_detected": 4,
+      "downtrend_traps_detected": 3,
+      "adjustments": [
+        "Phát hiện 4 lệnh lỗ T+5 do nổ giá thiếu Vol -> Tự động nâng ngưỡng `min_breakout_vol_ratio` từ 1.35x lên **1.4x**.",
+        "Phát hiện 4 lệnh lỗ T+5 do mua đuổi xa MA20 -> Tự động siết ngưỡng `max_poc_extension_pct` từ 7.5% xuống **7.2%**.",
+        "Phát hiện 3 nhịp Bull-trap dưới MA50 gây lỗ T+5 -> Giữ nguyên chế độ **VETO Chặn Mua Tuyệt Đối** với cổ phiếu dưới MA50/Stage 4."
+      ]
+    }
+  ]
+}

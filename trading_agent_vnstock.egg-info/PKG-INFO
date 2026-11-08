@@ -1,0 +1,63 @@
+Metadata-Version: 2.4
+Name: trading-agent-vnstock
+Version: 2.0.0
+Summary: Vietnam Quantitative Multi-Agent Hedge Fund & Algorithmic Trading Platform (TradingAgents, ai-hedge-fund, FinRL, FinRobot, Minervini SEPA, VSA/SMC, Spec Kit SDD)
+Author: Antigravity Quantitative Investment Committee
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: streamlit>=1.30.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: plotly>=5.18.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: ta>=0.11.0
+Requires-Dist: psutil>=5.9.0
+Dynamic: requires-python
+
+# 🏛️ Vietnam Institutional Trading Agent Platform
+
+Hệ thống AI Trading Agent Mô Hình Tổ Chức Đầu Tư Chuyên Nghiệp (Investment Committee) cho thị trường chứng khoán Việt Nam, tích hợp trực tiếp dữ liệu từ [vnstock](https://github.com/thinh-vu/vnstock.git).
+
+## 🌟 Tính Năng Tổ Chức Chuyên Nghiệp
+
+- **Mô hình Hội Đồng Đầu Tư Đa Agent (Investment Committee)**:
+  - 🌐 **Macro Agent**: Phân tích vĩ mô toàn cầu (DXY, US 10Y, Oil, S&P 500) & trong nước (USD/VND, SBV, CPI), xác định Market Regime.
+  - 🏢 **Fundamental & Junk Filter Agent**: Thẩm định BCTC chuyên sâu, bộ lọc loại trừ cổ phiếu rác, nguy cơ hủy niêm yết, và so sánh đối thủ cùng ngành.
+  - 📐 **Multi-Timeframe Structure Agent (MTF)**: Phân tích cấu trúc thị trường đa khung thời gian (Tháng - Tuần - Ngày - Giờ). Tuyệt đối không phân tích từng cây nến vụn vặt; tìm điểm mua tối ưu an toàn với tỷ lệ Lợi nhuận / Rủi ro `R:R ≥ 2.5 : 1`.
+  - 🌊 **Sentiment Agent**: Theo dõi dòng tiền Khối ngoại, tự doanh và bẫy truyền thông (Media Trap/FOMO/FUD).
+  - 🛡️ **Risk Officer (Bear Officer)**: Phản biện độc lập, chất vấn rủi ro sụt giảm và rủi ro thanh khoản chu kỳ T+2.5.
+  - 🎯 **Chief Investment Officer (CIO)**: Phán quyết cuối cùng, phê duyệt hạn mức giải ngân (% NAV) và chiến lược chia đợt.
+- **Tạo Agent Động & Phản Biện Khách Quan**:
+  - Tạo thêm Agent chuyên biệt mới theo yêu cầu ngay trong cửa sổ chat (`Tạo agent chuyên săn cổ tức`, `Tạo agent theo dõi cá mập`...).
+  - **Critical Advisory Engine**: Phản biện thẳng thắn, đưa ra số liệu & dẫn chứng xác thực khi người dùng có ý định rủi ro (mua rác penny, bắt đáy dao rơi, all-in không cắt lỗ).
+- **Hoạt động độc lập 100% (Daemon Mode)**:
+  - Vận hành dưới nền liên tục, không bị ngắt quãng khi tắt Antigravity hoặc đóng terminal.
+  - Khởi động 1-click từ icon Desktop `Vietnam Trading Agent`.
+- **Xuất Báo Cáo Nghiên Cứu Tổ Chức**:
+  - Tải xuống Báo cáo thẩm định đầu tư đầy đủ các mục (HTML / PDF).
+
+## 🚀 Khởi Động Nhanh
+
+### 1. Khởi động 1-Click từ Desktop
+Nhấp đúp vào icon **`Vietnam Trading Agent`** trên màn hình Desktop.
+
+### 2. Khởi động qua Terminal
+```bash
+cd /home/osboxes/Desktop/trading
+./start_trading_agent.sh
+```
+Truy cập giao diện tại: **`http://localhost:8502`**
+
+### 3. Kiểm tra trạng thái & Dừng hệ thống
+```bash
+# Kiểm tra trạng thái
+./status_trading_agent.sh
+
+# Dừng hệ thống
+./stop_trading_agent.sh
+```
+
+## 📖 Hướng Dẫn Chi Tiết
+Xem tài liệu hướng dẫn sử dụng chi tiết tại [HUONG_DAN_SU_DUNG.md](HUONG_DAN_SU_DUNG.md).

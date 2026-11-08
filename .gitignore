@@ -1,0 +1,28 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Streamlit runtime
+.streamlit/credentials.toml
+.streamlit/machine_id_v4
+
+# Project runtime & logs
+trading_agent.pid
+trading_agent.log
+data/*.pkl
+data/cache/
+*.log
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

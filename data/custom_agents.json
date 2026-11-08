@@ -1,0 +1,55 @@
+{
+  "agents": [
+    {
+      "id": "agent_smart_money",
+      "name": "Thợ Săn Dòng Tiền Cá Mập (Smart Money Tracker)",
+      "role": "Truy vết dòng tiền tổ chức lớn, quỹ đầu tư và tự doanh",
+      "trigger_keywords": [
+        "smart money",
+        "cá mập",
+        "dòng tiền lớn",
+        "tay to",
+        "tự doanh"
+      ],
+      "criteria": "Khối lượng đột biến > 200% TB20, xuất hiện gom hàng vùng nén VCP",
+      "created_at": "2026-10-26 21:21:07"
+    },
+    {
+      "id": "agent_dividend_hunter",
+      "name": "Chuyên Gia Săn Cổ Tức Tiền Mặt (High Dividend Hunter)",
+      "role": "Tìm kiếm cổ phiếu phòng thủ có tỷ suất cổ tức tiền mặt cao hơn lãi suất ngân hàng",
+      "trigger_keywords": [
+        "cổ tức",
+        "dividend",
+        "phòng thủ",
+        "thu nhập thụ động"
+      ],
+      "criteria": "Cổ tức tiền mặt đều đặn 3 năm gần nhất, tỷ suất cổ tức > 8%/năm, P/E < 12",
+      "created_at": "2026-10-26 21:21:07"
+    },
+    {
+      "id": "agent_growth_vcp",
+      "name": "Chuyên Gia Săn Siêu Cổ Tăng Trưởng (CANSLIM & VCP)",
+      "role": "Phát hiện cổ phiếu tăng trưởng EPS cao và mẫu hình thu hẹp độ biến động VCP",
+      "trigger_keywords": [
+        "siêu cổ",
+        "canslim",
+        "vcp",
+        "tăng trưởng",
+        "bứt phá"
+      ],
+      "criteria": "Tăng trưởng LNST > 25%, nằm trên đường MA50 và MA200, độ nén biến động < 8%",
+      "created_at": "2026-10-26 21:21:07"
+    },
+    {
+      "id": "custom_agent_4_1793064131",
+      "name": "Agent Chuyên Săn Cổ Tức Tiền Mặt Cao",
+      "role": "Chuyên trách chuyên săn cổ tức tiền mặt cao",
+      "criteria": "Phát hiện và sàng lọc theo chiến lược chuyên săn cổ tức tiền mặt cao",
+      "trigger_keywords": [
+        "agent chuyên săn cổ tức tiền mặt cao"
+      ],
+      "created_at": "2026-10-26 21:22:11"
+    }
+  ]
+}
